@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var commonConfig = require('./webpack.common.js');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var helpers = require('./helpers');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
@@ -41,6 +42,10 @@ module.exports = webpackMerge(commonConfig, {
       htmlLoader: {
         minimize: false // workaround for ng2
       }
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      filename: '../index.html' //build output file name
     })
   ]
 });

@@ -57,11 +57,6 @@ module.exports = {
 
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills']
-    }),
-
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      filename: '../index.html' //build output file name
     })
   ]
 };
